@@ -7,6 +7,10 @@ import java.lang.annotation.RetentionPolicy
 import java.lang.annotation.Retention
 import java.lang.reflect.Method
 
+/**
+ * This should probably be moved to a Delegate, otherwise we will need a trait
+ * for each Fragment, Dialog, etc
+ */
 public trait ButterActivity : Activity {
 
     /**
@@ -24,8 +28,6 @@ public trait ButterActivity : Activity {
                     })
             }
     }
-
-
 
 }
 

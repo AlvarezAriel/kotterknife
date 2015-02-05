@@ -7,17 +7,24 @@ import butterknife.bindView
 import android.widget.TextView
 import android.widget.Button
 import android.widget.ImageView
-import butterknife.listenOnClick
 import butterknife.ButterActivity
 import butterknife.OnClick
 import android.view.View
 import java.lang.reflect.Method
+import butterknife.oneWayBinding
+import butterknife.bindTo
+import android.widget.EditText
 
 public class MainActivity : Activity() , ButterActivity {
 
-    val text   : TextView  by bindView(R.id.text)
-    val button : Button    by bindView(R.id.button)
-    val image  : ImageView by bindView(R.id.image)
+    val text       : TextView  by bindView(R.id.text)
+    val button     : Button    by bindView(R.id.button)
+    val image      : ImageView by bindView(R.id.image)
+    var someText : String by oneWayBinding(R.id.text)
+
+    val textInput  : EditText by bindTo(R.id.textInput){
+        someText = "KotterKnife Demo: $it"
+    }
 
     override public fun onCreate(savedInstanceState: Bundle?) {
         super<Activity>.onCreate(savedInstanceState)
@@ -25,7 +32,7 @@ public class MainActivity : Activity() , ButterActivity {
         setContentView(R.layout.activity_main)
         initButter()
 
-        text.setText("KotterKnife Demo")
+        textInput.setHint("Enter some text...")
         button.setText("Tap to display image")
 
     }

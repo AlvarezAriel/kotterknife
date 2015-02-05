@@ -13,6 +13,11 @@
         android:textSize="20sp"
         tools:text="textview"/>
 
+    <EditText
+        android:id="@+id/textInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <ImageView
         android:id="@+id/image"
         android:layout_width="100dp"
