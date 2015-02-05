@@ -1,0 +1,2 @@
+include ':kottersample', ':kottercore'
+rootProject.name = 'kotterknife'
